@@ -1,13 +1,13 @@
 {
   "name": "write-like-me",
-  "owner": { "name": "Gerard" },
+  "owner": { "name": "Gerard Slee" },
   "plugins": [
     {
       "name": "me",
       "source": "./",
       "description": "Teaches your agent to write in your voice. /me init builds a style profile from your own writing; /me applies it to emails, Slack, PRs and posts.",
       "version": "0.1.0",
-      "author": { "name": "Gerard" }
+      "author": { "name": "Gerard Slee" }
     }
   ]
 }
