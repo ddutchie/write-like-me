@@ -1,0 +1,4 @@
+.DS_Store
+# Personal voice profiles never belong in this repo
+.me/
+skills/me/STYLE.md
