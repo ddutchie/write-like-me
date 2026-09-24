@@ -57,7 +57,7 @@ Copy `skills/me/` into your agent's skills folder, for example `~/.claude/skills
 
 ### Claude.ai
 
-1. Download `dist/me.zip` and upload it under **Customize → Skills**.
+1. Download [`me.zip` from the latest release](https://github.com/ddutchie/write-like-me/releases/latest/download/me.zip) and upload it under **Customize → Skills**.
 2. Run `/me init`. Claude.ai can't save files, so at the end it gives you your profile as text.
 3. Save that text as `STYLE.md` inside the `me/` folder, zip the folder again and re-upload it.
 
