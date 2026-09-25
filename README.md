@@ -76,7 +76,15 @@ The most valuable contributions are:
 - Better interview questions.
 - Before-and-after examples for [EXAMPLES.md](EXAMPLES.md), with permission from whoever wrote them.
 
-Keep `SKILL.md` under 500 lines ([spec](https://agentskills.io/specification)), and bump `version` in `.claude-plugin/plugin.json` and `marketplace.json` on each release.
+Keep `SKILL.md` under 500 lines ([spec](https://agentskills.io/specification)).
+
+To release, bump `version` in `SKILL.md`, `.claude-plugin/plugin.json` and `marketplace.json`, merge to `main`, then push a matching tag:
+
+```bash
+git tag v0.2.0 && git push origin v0.2.0
+```
+
+A GitHub Action checks the tag matches all three versions, builds `me.zip` and publishes the release.
 
 ## License
 
