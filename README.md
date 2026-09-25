@@ -24,7 +24,8 @@ See [EXAMPLES.md](EXAMPLES.md) for before-and-after samples.
 2. **One file, yours.** Your voice lives in `~/.me/STYLE.md`, plain markdown that you can read and edit. It's never stored in the skill folder, so updates can't overwrite it.
 3. **Registers.** You write differently in Slack and in an email to a stranger. The profile keeps rules for each place you write.
 4. **It learns from your edits.** When you rewrite a draft, `/me learn` compares the two versions, separates voice changes from content changes, and suggests new rules. Nothing changes without your approval.
-5. **An anti-AI list.** It ships with a list of [common AI tells](skills/me/references/ai-tells.md). Your profile can override any of them; if you really do love em dashes, keep them.
+5. **No caricature.** Occasional quirks like "…" or CAPS are measured per 1000 words, so a two-line reply doesn't carry your whole quirk load. Habits you have every time, like lowercase in Slack, apply everywhere.
+6. **An anti-AI list.** It ships with a list of [common AI tells](skills/me/references/ai-tells.md). Your profile can override any of them; if you really do love em dashes, keep them.
 
 ### Where your profile lives
 
@@ -33,6 +34,8 @@ See [EXAMPLES.md](EXAMPLES.md) for before-and-after samples.
 | `.me/STYLE.md` (in a project) | A project voice, such as your company's docs style. Overrides the global profile section by section |
 | `~/.me/STYLE.md` | Your personal voice, used everywhere |
 | `STYLE.md` inside the skill folder | For claude.ai, which has no home directory (see below) |
+
+Every draft ends with a line such as `voice: ~/.me/STYLE.md`, so you can see which profile was used. On a teammate's machine or in CI, `~/.me/STYLE.md` doesn't exist. If no profile is found, the skill says so instead of quietly falling back to the default voice. To make a voice travel with a repo, commit its `.me/STYLE.md`.
 
 ## Install
 
