@@ -27,6 +27,14 @@ confidence: <low | medium | high>   # low = no samples, high = 5+ varied samples
 - Emoji: <none | only in Slack: 👍 🙏 | ...>
 - Exclamation marks: <e.g. max one per message, only for thanks>
 
+## Quirks
+<Marks that show up only some of the time. Rate = uses per 1000 words of that register's samples; add "rough" when there were under ~300 words. Anything in nearly every message is a habit and belongs in Mechanics or Registers.>
+
+| Quirk | Register | Per 1000 words | Example |
+|---|---|---|---|
+| <e.g. "…" to trail off> | <e.g. Slack> | <e.g. 18> | <e.g. "my only feedback is…"> |
+| <e.g. CAPS for emphasis> | <e.g. Slack> | <e.g. 6 (rough)> | <e.g. "WAY simpler"> |
+
 ## Vocabulary
 - Uses: <recurring words and phrases, quoted exactly>
 - Hedges with: <e.g. "I think", "pretty sure">
