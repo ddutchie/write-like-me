@@ -1,0 +1,35 @@
+# Publishes a GitHub release with me.zip attached when a version tag is pushed:
+#   git tag v0.2.0 && git push origin v0.2.0
+# The README's claude.ai install link points at releases/latest/download/me.zip.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check tag matches version
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          plugin=$(jq -r .version .claude-plugin/plugin.json)
+          market=$(jq -r '.plugins[0].version' .claude-plugin/marketplace.json)
+          skill=$(sed -n 's/^  version: "\(.*\)"$/\1/p' skills/me/SKILL.md)
+          echo "tag=$tag plugin.json=$plugin marketplace.json=$market SKILL.md=$skill"
+          [ "$tag" = "$plugin" ] && [ "$tag" = "$market" ] && [ "$tag" = "$skill" ] \
+            || { echo "::error::Tag v$tag does not match the version in every manifest"; exit 1; }
+
+      - name: Build me.zip
+        run: ./scripts/build-zip.sh
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/me.zip --title "$GITHUB_REF_NAME" --generate-notes
